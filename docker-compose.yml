@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  api:
+    ports:
+      - 5001:5001
+    build:
+      context: .
+      dockerfile: api.dockerfile
+    environment:
+      DATABASE_HOST: http://ravendb:8080
+  ravendb:
+    image: "ravendb/ravendb:5.3.0-ubuntu.20.04-x64"
+    hostname: "ravendb"
+    ports:
+      - 8080:8080
+    volumes:
+      - configVolume:/opt/RavenDB/config
+      - dataVolume:/opt/RavenDB/Server/RavenData
+    environment:
+      RAVEN_ARGS: --ServerUrl=http://0.0.0.0:8080 --Setup.Mode=None --Security.UnsecuredAccessAllowed=PublicNetwork --License.Eula.Accepted=true
+volumes:
+  configVolume:
+  dataVolume:

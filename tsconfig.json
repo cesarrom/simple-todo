@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "lib",
+    "inlineSourceMap": true,
+    "esModuleInterop": true,
+    "target": "es2018",
+    "lib": ["es2020", "dom", "esnext.asynciterable"],
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["reflect-metadata", "node", "jest"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "skipLibCheck": true
+  },
+  "include": ["./src/**/*.*", "./tests/**/*.*"],
+  "exclude": ["node_modules", "./public", "lib"]
+}
